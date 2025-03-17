@@ -1,0 +1,163 @@
+body {
+margin: 0;
+font-family: 'Arial', Helvetica, sans-serif;
+background-color: #f5f5f5;
+color: #333;
+}
+
+h1 {
+color: #007bff; 
+font-size: 2.5em; 
+font-weight: bold; 
+text-align: center; 
+text-transform: uppercase; 
+margin-top: 20px;
+margin-bottom: 10px; 
+letter-spacing: 2px;
+background: linear-gradient(to right, #007bff, #0056b3);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent; 
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome p {
+color: #444;
+font-size: 1.2em; 
+font-weight: 500;
+text-align: center;
+background-color: #e9f7ef;
+padding: 15px;
+margin: 20px auto; 
+border: 1px solid #28a745; 
+border-radius: 10px;
+max-width: 600px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-autenticado {
+color: #28a745;
+font-weight: bold;
+font-size: 1.1em;
+}
+
+.calendar-container {
+max-width: 1200px;
+margin: 30px auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#calendar {
+margin: 0 auto;
+}
+
+.admin-container {
+position: absolute;
+top: 0px;
+right: 5px;
+display: flex;
+gap: 10px;
+z-index: 1000;
+}
+
+.admin-button {
+padding: 10px 14px; 
+font-size: 14px; 
+font-weight: bold;
+color: #fff;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.admin-button.reservar {
+background-color: #007bff;
+}
+
+.admin-button.salas {
+background-color: #28a745;
+}
+
+.admin-button.autorizar {
+background-color: #ffc107;
+color: #333;
+}
+
+.admin-button.usuarios {
+background-color: #dc3545;
+}
+
+.admin-button.borrar {
+background-color: #6c757d;
+color: #fff;
+}
+
+.admin-button.borrar:hover {
+background-color: #495057;
+transform: scale(1.05);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.admin-button:hover {
+opacity: 0.9;
+transform: scale(1.05);
+}
+
+.admin-button.reservar:hover {
+background-color: #0056b3;
+}
+
+.admin-button.salas:hover {
+background-color: #218838;
+}
+
+.admin-button.autorizar:hover {
+background-color: #e0a800;
+}
+
+.admin-button.usuarios:hover {
+background-color: #c82333;
+}
+
+.legend {
+position: fixed;
+top: 5px;
+left: 10px;
+display: block;
+gap: 15px;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9)); /* Fondo degradado */
+padding: 15px;
+border-radius: 12px; 
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+z-index: 1000;
+transition: all 0.3s ease; 
+}
+
+.legend-item {
+display: flex;
+margin-bottom: 10px;
+font-size: 1.1em;
+color: #333;
+transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+.legend-color {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+border: 2px solid #fff; 
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fc-event.hidden {
+    display: none;
+}
+
+
+span{
+margin-top: 5px;
+}
