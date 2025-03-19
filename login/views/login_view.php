@@ -6,7 +6,7 @@
   <script src="./dist/index.global.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/login.js"></script>
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <div class="legend">

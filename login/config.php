@@ -44,7 +44,7 @@ $cas_server_ca_cert_path = 'star.maristaschamberi_com.crt';
 //$cas_real_hosts = array('cas-real-1.example.com', 'cas-real-2.example.com');
 
 // Client config for the required domain name, should be protocol, hostname and port
-$client_service_name = 'https://reservas.maristaschamberi.com';
+$client_service_name = 'https://pruebas.maristaschamberi.com';
 
 // Client config for cookie hardening
 //$client_domain = '127.0.0.1';
