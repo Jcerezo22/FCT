@@ -1,6 +1,6 @@
 <?php
     // Llamada al controlador de la autenticación con CAS
-    require_once("controllers/incio_controller.php");
+    require_once("login_controller.php");
     
     //Llamada al modelo -- Intermediario entre vista y modelo !!!
     require_once("models/inicio_model.php");
@@ -14,13 +14,15 @@
         $saludo = "Buenas noches";
     }
 
-    $id_rol = rolUsu();
+    $usuario = phpCAS::getUser();
+
+    $id_rol = rolUsu($usuario);
 
     // Si el usuario no existe, lo insertamos en la base de datos
     if(empty($id_rol))
     {
-        insertarUsu();
-        $id_rol = rolUsu();
+        insertarUsu($usuario);
+        $id_rol = rolUsu($usuario);
     }
 
     //Llamada a la vista -- Intermediario entre vista y modelo !!!

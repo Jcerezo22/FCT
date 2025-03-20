@@ -3,5 +3,5 @@
   require_once("db/db.php");
 
   // Llamada al controlador
-  require_once("controllers/incio_controller.php");
+  require_once("controllers/inicio_controller.php");
 ?>
