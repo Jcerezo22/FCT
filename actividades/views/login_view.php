@@ -24,9 +24,8 @@
         <p>
             <?php echo $saludo . ", <span class='usuario-autenticado'>" . htmlspecialchars($usuario) . "</span>. ¡Bienvenido/a al sistema de reservas!"; ?>
         </p>
-      </div>
-
-      <div class="admin-container">
+    </div>
+    <div class="admin-container">
         <button type="button" class="admin-button reservar" onclick="window.location.href='reservar_sala.php'">Reservar Salas</button>	
         <!-- Botones segun el rol y permisos -->
         <?php if ($id_rol == 1): ?>
