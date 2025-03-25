@@ -10,7 +10,6 @@
 </head>
 <body>
 <div class="legend">
-
     <?php foreach ($espacios_colores as $espacio): ?>
 		<div class="legend-item"> <input class="cs" style="accent-color: <?php echo htmlspecialchars($espacio['color']); ?>" value="<?php echo $espacio['id_espacio'] ?>" type="checkbox" ><span style="color: <?php echo htmlspecialchars($espacio['color']); ?>"><?php echo htmlspecialchars($espacio['nombre']); ?></span>
 		</div>
