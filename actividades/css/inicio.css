@@ -46,9 +46,58 @@ h1 {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-container p {
     text-align: center;
     font-weight: bolder;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la tabla */
+.calendar-container table {
+    width: 100%;
+    border-collapse: separate; /* Cambiar a 'separate' para que funcione border-radius */
+    border-spacing: 0; /* Elimina los espacios entre celdas */
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border: 1px solid #dcdcdc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que las esquinas se recorten correctamente */
+}
+
+/* Estilo para las celdas de la tabla */
+.calendar-container th, .calendar-container td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dcdcdc; /* Borde gris claro */
+}
+
+/* Estilo para los encabezados de la tabla */
+.calendar-container th {
+    background-color: #007bff; /* Azul consistente con los botones */
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+}
+
+/* Estilo para las filas alternas */
+.calendar-container tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo gris claro para filas pares */
+}
+
+.calendar-container tr:nth-child(odd) {
+    background-color: #ffffff; /* Fondo blanco para filas impares */
+}
+
+/* Hover en las filas */
+.calendar-container tr:hover {
+    background-color: #e6f7ff; /* Azul claro al pasar el ratón por encima */
+}
+
+/* Estilo adicional para el texto */
+.calendar-container p {
+    font-size: 16px;
+    color: #333333; /* Gris oscuro */
 }
 
 #calendar {

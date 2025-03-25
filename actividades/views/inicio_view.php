@@ -25,13 +25,22 @@
             </div>  
             <div class="calendar-container">
                 <?php 
-                    if(empty($actividades))
+                    if(!empty($actividades))
                     {
                         echo "<p>Actualmente no estas implicado en ninguna actividad</p>";
                     }
                     else
                     {
-                        
+                        echo"<table>";
+                        echo"<th>Actividad</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th><th>Fecha reserva</th><th>Fecha autorizacion</th><th>Lugar</th><th>Comida</th><th>Comida (fuera)</th><th>Autobus</th><th>Observaciones</th><tr>";            
+                        /*for($i=0 ; $i < count($datosReserva["aerolinea"]) ; $i++)
+                        {
+                            echo "<td>". $datosReserva['aerolinea'][$i]["nombre_aerolinea"] ."</td><td>". $datosReserva["origen"][$i]["origen"] ."</td><td>". $datosReserva["destino"][$i]["destino"] ."</td><td>". $datosReserva["salida"][$i]["fechahorasalida"] ."</td><td>". $datosReserva["llegada"][$i]["fechahorallegada"] ."</td><td>". $datosReserva["asientos"][$i]["num_asientos"] ."</td><tr>";
+                        }*/
+                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
+                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
+                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
+                        echo"</table>";
                     }
                 ?>
             </div>
