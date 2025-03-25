@@ -18,6 +18,8 @@
 
     $id_rol = rolUsu($usuario);
 
+    $actividades = actividadesUsu($usuario);
+
     // Si el usuario no existe, lo insertamos en la base de datos
     if(empty($id_rol))
     {

@@ -19,12 +19,21 @@
             <div class="admin-container">
                 <button type="button" class="admin-button reservar" onclick="window.location.href='controllers/confAct_controller.php'">Configurar actividades</button>	
                 <!-- Botones segun el rol y permisos -->
-                <?php if ($id_rol == 1): ?>
+                <?php if($id_rol == 1): ?>
                     <button type="button" class="admin-button salas" onclick="window.location.href='controllers/gestUsu_controller.php'">Gestionar usuarios</button>
                 <?php endif; ?>
             </div>  
             <div class="calendar-container">
-               
+                <?php 
+                    if(empty($actividades))
+                    {
+                        echo "<p>Actualmente no estas implicado en ninguna actividad</p>";
+                    }
+                    else
+                    {
+                        
+                    }
+                ?>
             </div>
         </div>
     </body>
