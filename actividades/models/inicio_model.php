@@ -5,7 +5,7 @@
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT nombre, rol_id, grupo_id FROM usuarios WHERE nombre = :usuario");
+            $stmt = $conn->prepare("SELECT id_usuario, nombre, rol_id, grupo_id FROM usuarios WHERE nombre = :usuario");
             $stmt->bindParam(':usuario', $usuario);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@
         $conn = abrirBD();
 
         try {
-            $fecha = date("Y-m-d h:i:s");
+            $fecha = date("Y-m-d");
             $stmt = $conn->prepare("SELECT b.nombre, b.fecha, b.hora_inicio, b.hora_fin, b.estado, b.fecha_reserva, b.fecha_autorizacion, b.lugar, b.observaciones, b.comida, b.comida_fuera, b.autobus FROM actividad_usuario a, actividades b WHERE a.id_usuario = :usuario AND b.fecha >= :fecha AND a.id_actividad = b.id_actividad");
             $stmt->bindParam(':usuario', $usuario);
             $stmt->bindParam(':fecha', $fecha);

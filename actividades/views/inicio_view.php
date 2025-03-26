@@ -5,7 +5,6 @@
         <title>Actividades</title>
         <script src="./dist/index.global.js"></script>
         <script src="js/jquery-3.7.1.min.js"></script>
-        <script src="js/inicio.js"></script>
         <link rel="stylesheet" href="css/inicio.css">
     </head>
     <body>
@@ -31,10 +30,15 @@
                     }
                     else
                     {
+                        if(count($actividades) > 1)
+                            echo "<p>Tienes ". count($actividades) ." actividades</p><br>";
+                        else
+                            echo "<p>Tienes ". count($actividades) ." actividad</p><br>";
+
                         echo"<table>";
                         echo"<th>Actividad</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th><th>Fecha reserva</th><th>Fecha autorizacion</th><th>Lugar</th><th>Comida</th><th>Comida (fuera)</th><th>Autobus</th><th>Observaciones</th><tr>";        
                         foreach($actividades as $row) {
-                            echo "<td>". $row["nombre"] ."</td><td>". $row["fecha"] ."</td><td>". $row["hora_inicio"] ."</td><td>". $row["hora_fin"] ."</td><td>". $row["estado"] ."</td><td>". $row["fecha_reserva"] ."</td><td>". $row["fecha_autorizacion"] ."</td><td>". $row["lugar"] ."</td><td>". $row["comida"] ."</td><td>". $row["comida_fuera"] ."</td><td>". $row["observaciones"] ."</td><tr>";
+                            echo "<td>". $row["nombre"] ."</td><td>". $row["fecha"] ."</td><td>". $row["hora_inicio"] ."</td><td>". $row["hora_fin"] ."</td><td>". $row["estado"] ."</td><td>". $row["fecha_reserva"] ."</td><td>". $row["fecha_autorizacion"] ."</td><td>". $row["lugar"] ."</td><td>". $row["comida"] ."</td><td>". $row["comida_fuera"] ."</td><td>". $row["autobus"] ."</td><td>". $row["observaciones"] ."</td><tr>";
                         }    
                         echo"</table>";
                     }

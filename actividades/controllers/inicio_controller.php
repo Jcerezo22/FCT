@@ -29,7 +29,7 @@
     $serializedDatos = serialize($datosUsu);
     setcookie($cookie_name, $serializedDatos, time() + (86400 * 30), "/"); // 86400 segundos = 1 día
 
-    $actividades = actividadesUsu($usuario);
+    $actividades = actividadesUsu($datosUsu["id_usuario"]);
 
     //Llamada a la vista -- Intermediario entre vista y modelo !!!
     require_once("views/inicio_view.php");
