@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <title>Actividades</title>
-        <script src="./dist/index.global.js"></script>
-        <script src="js/jquery-3.7.1.min.js"></script>
         <link rel="stylesheet" href="css/inicio.css">
     </head>
     <body>
