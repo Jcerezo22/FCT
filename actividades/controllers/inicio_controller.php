@@ -16,16 +16,20 @@
 
     $usuario = phpCAS::getUser();
 
-    $id_rol = rolUsu($usuario);
-
-    $actividades = actividadesUsu($usuario);
+    $datosUsu = datosUsu($usuario);
 
     // Si el usuario no existe, lo insertamos en la base de datos
-    if(empty($id_rol))
+    if(empty($datosUsu))
     {
         insertarUsu($usuario);
-        $id_rol = rolUsu($usuario);
+        $datosUsu = datosUsu($usuario);
     }
+
+    $cookie_name = "usuario";
+    $serializedDatos = serialize($datosUsu);
+    setcookie($cookie_name, $serializedDatos, time() + (86400 * 30), "/"); // 86400 segundos = 1 día
+
+    $actividades = actividadesUsu($usuario);
 
     //Llamada a la vista -- Intermediario entre vista y modelo !!!
     require_once("views/inicio_view.php");

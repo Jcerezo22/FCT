@@ -1,18 +1,17 @@
 <?php
-    //Verifica si el usuario ya esta en la base de datos, si esta obtiene su rol
-    function rolUsu($usuario)
+    //Verifica si el usuario ya esta en la base de datos, si esta obtiene sus datos
+    function datosUsu($usuario)
     {
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT rol_id FROM usuarios WHERE nombre = :usuario");
+            $stmt = $conn->prepare("SELECT nombre, rol_id, grupo_id FROM usuarios WHERE nombre = :usuario");
             $stmt->bindParam(':usuario', $usuario);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetch(); 
-            $id_rol = $resultado["rol_id"];
 
-            return $id_rol;
+            return $resultado;
         }
         catch(PDOException $e)
         {

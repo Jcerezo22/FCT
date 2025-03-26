@@ -19,27 +19,23 @@
             <div class="admin-container">
                 <button type="button" class="admin-button reservar" onclick="window.location.href='controllers/confAct_controller.php'">Configurar actividades</button>	
                 <!-- Botones segun el rol y permisos -->
-                <?php if($id_rol == 1): ?>
+                <?php if($datosUsu["id_rol"] == 1): ?>
                     <button type="button" class="admin-button salas" onclick="window.location.href='controllers/gestUsu_controller.php'">Gestionar usuarios</button>
                 <?php endif; ?>
             </div>  
             <div class="calendar-container">
                 <?php 
-                    if(!empty($actividades))
+                    if(empty($actividades))
                     {
                         echo "<p>Actualmente no estas implicado en ninguna actividad</p>";
                     }
                     else
                     {
                         echo"<table>";
-                        echo"<th>Actividad</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th><th>Fecha reserva</th><th>Fecha autorizacion</th><th>Lugar</th><th>Comida</th><th>Comida (fuera)</th><th>Autobus</th><th>Observaciones</th><tr>";            
-                        /*for($i=0 ; $i < count($datosReserva["aerolinea"]) ; $i++)
-                        {
-                            echo "<td>". $datosReserva['aerolinea'][$i]["nombre_aerolinea"] ."</td><td>". $datosReserva["origen"][$i]["origen"] ."</td><td>". $datosReserva["destino"][$i]["destino"] ."</td><td>". $datosReserva["salida"][$i]["fechahorasalida"] ."</td><td>". $datosReserva["llegada"][$i]["fechahorallegada"] ."</td><td>". $datosReserva["asientos"][$i]["num_asientos"] ."</td><tr>";
-                        }*/
-                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
-                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
-                        echo "<td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><tr>";
+                        echo"<th>Actividad</th><th>Fecha</th><th>Hora inicio</th><th>Hora fin</th><th>Estado</th><th>Fecha reserva</th><th>Fecha autorizacion</th><th>Lugar</th><th>Comida</th><th>Comida (fuera)</th><th>Autobus</th><th>Observaciones</th><tr>";        
+                        foreach($actividades as $row) {
+                            echo "<td>". $row["nombre"] ."</td><td>". $row["fecha"] ."</td><td>". $row["hora_inicio"] ."</td><td>". $row["hora_fin"] ."</td><td>". $row["estado"] ."</td><td>". $row["fecha_reserva"] ."</td><td>". $row["fecha_autorizacion"] ."</td><td>". $row["lugar"] ."</td><td>". $row["comida"] ."</td><td>". $row["comida_fuera"] ."</td><td>". $row["observaciones"] ."</td><tr>";
+                        }    
                         echo"</table>";
                     }
                 ?>
