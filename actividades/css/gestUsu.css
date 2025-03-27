@@ -23,6 +23,10 @@ h1 {
 .container {
     font-family: Arial, sans-serif;
     margin: 20px;
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Opcional: centra los elementos verticalmente */
 }
 
 .admin-container {
@@ -59,6 +63,12 @@ h1 {
     transform: scale(1.05);
 }
 
+.groups, .users {
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 20%;
+}
+
 .manage-users {
     background-color: #28a745;
     color: white;
@@ -68,10 +78,6 @@ h1 {
     cursor: pointer;
 }
 
-.groups, .users {
-    margin-top: 20px;
-}
-
 .new-group, .new-user {
     background-color: #ff9019;
     color: white;
@@ -79,6 +85,12 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.new-group:hover , .new-user:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    background-color: #ff6619;
 }
 
 button.edit {
@@ -94,7 +106,7 @@ button.edit:hover {
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -102,6 +114,7 @@ table {
 table td {
     border: 1px solid #ddd;
     padding: 8px;
+    word-wrap: break-word; 
 }
 
 table tr:nth-child(even) {
@@ -110,4 +123,16 @@ table tr:nth-child(even) {
 
 table tr:hover {
     background-color: #ddd;
+}
+
+thead th:first-child, tbody td:first-child {
+    width: 47.5%; /* Ajusta el ancho de la primera columna */
+}
+
+thead th:nth-child(2), tbody td:nth-child(2) {
+    width: 47.5%; /* Ajusta el ancho de la segunda columna */
+}
+
+thead th:last-child, tbody td:last-child {
+    width: 5%; /* Ajusta el ancho de la columna del botón */
 }
