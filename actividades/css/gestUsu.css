@@ -38,7 +38,7 @@ h1 {
     z-index: 1000;
 }
 
-.admin-button {
+.admin-button, .new-group, .new-user, button.edit, .manage-users {
     padding: 10px 14px; 
     font-size: 14px; 
     font-weight: bold;
@@ -50,15 +50,23 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 }
 
-.admin-button.reservar {
+.admin-button.reservar, .manage-users, button.edit {
     background-color: #28a745;
 }
 
-.admin-button.reservar:hover {
+.admin-button.reservar:hover, button.edit:hover {
     background-color: #218838;
 }
 
-.admin-button:hover {
+.new-group, .new-user {
+    background-color: #ff9019;
+}
+
+.new-group:hover , .new-user:hover {
+    background-color: #ff6619;
+}
+
+.admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
@@ -67,42 +75,6 @@ h1 {
     margin-top: 5%;
     width: 80%;
     margin-left: 20%;
-}
-
-.manage-users {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.new-group, .new-user {
-    background-color: #ff9019;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.new-group:hover , .new-user:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-    background-color: #ff6619;
-}
-
-button.edit {
-    color: white;
-    background-color: #28a745;
-    border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
-
-button.edit:hover {
-    background-color: #218838;
 }
 
 table {
