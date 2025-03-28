@@ -4,12 +4,14 @@
         <meta charset="utf-8" />
         <title>Gestionar usuarios</title>
         <link rel="stylesheet" href="../css/gestUsu.css">
+        <script src="../js/jquery-3.7.1.min.js"></script>
+		<script src="../js/gestUsu.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
             <h1>Gestionar usuarios</h1>
             <div class="admin-container">
-                <button type="button" class="admin-button reservar" onclick="window.location.href='../index.php'">Volver</button>	
+                <button type="button" class="admin-button volver" onclick="window.location.href='../index.php'">Volver</button>	
             </div>  
             <div class="groups">
                 <button class="manage-users">Grupos</button>
@@ -29,7 +31,7 @@
                                         if($i==0)
                                             echo $usuPorGrupo[$i]["nombre"]. ", ";
                                         else    
-                                            echo $usuPorGrupo[$i]["nombre"];
+                                            echo $usuPorGrupo[$i]["nombre"]. "...";
                                     }
                                 }
                                 else
@@ -37,10 +39,24 @@
                                     echo $usuPorGrupo[0]["nombre"];
                                 }
                             }
-                            echo "...</td><td><button class='edit'>✏️</button></td></tr>";
+                            else
+                            {
+                                echo "...";
+                            }
+                            echo "</td><td><button class='edit' id='edit-group'>✏️</button></td></tr>";
                         }
                     ?>
                 </table>
+                <dialog id="dialog-edit-group">
+                    <form method="dialog" id="edit-group">
+                        <label for="nomUsuR">Nombre de usuario: </label>
+                        <input type="text" id="nomUsuR" name="nomUsuR"><br><br>
+                        <label for="contraR">Contraseña: </label>
+                        <input type="password" id="contraR" name="contraR"><br><br>
+                        <input type="button" value="Aceptar" name="Aceptar" id="aplicar-grupo">
+                        <input type="button" value="Cancelar" name="Cancelar" id="cancelar-grupo">
+                    </form>
+                </dialog>
             </div>
             <div class="users">
                 <button class="manage-users">Usuarios</button>

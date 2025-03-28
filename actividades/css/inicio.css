@@ -15,6 +15,7 @@ h1 {
     margin-bottom: 10px; 
     letter-spacing: 2px;
     background: linear-gradient(to right, #007bff, #0056b3);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -40,7 +41,7 @@ h1 {
     font-size: 1.1em;
 }
 
-.calendar-container {
+.activities-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
@@ -49,13 +50,13 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.calendar-container p {
+.activities-container p {
     text-align: center;
     font-weight: bolder;
 }
 
 /* Estilo para la tabla */
-.calendar-container table {
+.activities-container table {
     width: 100%;
     border-collapse: separate; /* Cambiar a 'separate' para que funcione border-radius */
     border-spacing: 0; /* Elimina los espacios entre celdas */
@@ -67,41 +68,37 @@ h1 {
 }
 
 /* Estilo para las celdas de la tabla */
-.calendar-container th, .calendar-container td {
+.activities-container th, .activities-container td {
     padding: 10px;
     text-align: center;
     border: 1px solid #dcdcdc; /* Borde gris claro */
 }
 
 /* Estilo para los encabezados de la tabla */
-.calendar-container th {
+.activities-container th {
     background-color: #007bff; /* Azul consistente con los botones */
     color: #ffffff; /* Texto blanco */
     font-weight: bold;
 }
 
 /* Estilo para las filas alternas */
-.calendar-container tr:nth-child(even) {
+.activities-container tr:nth-child(even) {
     background-color: #f9f9f9; /* Fondo gris claro para filas pares */
 }
 
-.calendar-container tr:nth-child(odd) {
+.activities-container tr:nth-child(odd) {
     background-color: #ffffff; /* Fondo blanco para filas impares */
 }
 
 /* Hover en las filas */
-.calendar-container tr:hover {
+.activities-container tr:hover {
     background-color: #e6f7ff; /* Azul claro al pasar el ratón por encima */
 }
 
 /* Estilo adicional para el texto */
-.calendar-container p {
+.activities-container p {
     font-size: 16px;
     color: #333333; /* Gris oscuro */
-}
-
-#calendar {
-    margin: 0 auto;
 }
 
 .admin-container {
@@ -125,86 +122,25 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 }
 
-.admin-button.reservar {
+.admin-button.confAct {
     background-color: #007bff;
 }
 
-.admin-button.salas {
+.admin-button.gestUsu {
     background-color: #28a745;
 }
 
-.admin-button.autorizar {
-    background-color: #ffc107;
-    color: #333;
+.admin-button.confAct:hover {
+    background-color: #0056b3;
 }
 
-.admin-button.usuarios {
-    background-color: #dc3545;
-}
-
-.admin-button.borrar {
-    background-color: #6c757d;
-    color: #fff;
-}
-
-.admin-button.borrar:hover {
-    background-color: #495057;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.admin-button.gestUsu:hover {
+    background-color: #218838;
 }
 
 .admin-button:hover {
     opacity: 0.9;
     transform: scale(1.05);
-}
-
-.admin-button.reservar:hover {
-    background-color: #0056b3;
-}
-
-.admin-button.salas:hover {
-    background-color: #218838;
-}
-
-.admin-button.autorizar:hover {
-    background-color: #e0a800;
-}
-
-.admin-button.usuarios:hover {
-    background-color: #c82333;
-}
-
-.legend {
-    position: fixed;
-    top: 5px;
-    left: 10px;
-    display: block;
-    gap: 15px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9)); /* Fondo degradado */
-    padding: 15px;
-    border-radius: 12px; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
-    z-index: 1000;
-    transition: all 0.3s ease; 
-}
-
-.legend-item {
-    display: flex;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #333;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.legend-color {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid #fff; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.fc-event.hidden {
-    display: none;
 }
 
 span{

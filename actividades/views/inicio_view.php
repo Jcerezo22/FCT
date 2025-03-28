@@ -14,13 +14,13 @@
                 </p>
             </div>
             <div class="admin-container">
-                <button type="button" class="admin-button reservar" onclick="window.location.href='controllers/confAct_controller.php'">Configurar actividades</button>	
+                <button type="button" class="admin-button confAct" onclick="window.location.href='controllers/confAct_controller.php'">Configurar actividades</button>	
                 <!-- Botones segun el rol y permisos -->
                 <?php if($datosUsu["rol_id"] == 1): ?>
-                    <button type="button" class="admin-button salas" onclick="window.location.href='controllers/gestUsu_controller.php'">Gestionar usuarios</button>
+                    <button type="button" class="admin-button gestUsu" onclick="window.location.href='controllers/gestUsu_controller.php'">Gestionar usuarios</button>
                 <?php endif; ?>
             </div>  
-            <div class="calendar-container">
+            <div class="activities-container">
                 <?php 
                     if(empty($actividades))
                     {

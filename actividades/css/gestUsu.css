@@ -15,6 +15,7 @@ h1 {
     margin-bottom: 10px; 
     letter-spacing: 2px;
     background: linear-gradient(to right, #28a745, #218838);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -50,11 +51,11 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 }
 
-.admin-button.reservar, .manage-users, button.edit {
+.admin-button.volver, .manage-users, button.edit {
     background-color: #28a745;
 }
 
-.admin-button.reservar:hover, button.edit:hover {
+.admin-button.volver:hover, button.edit:hover {
     background-color: #218838;
 }
 
@@ -63,7 +64,7 @@ h1 {
 }
 
 .new-group:hover , .new-user:hover {
-    background-color: #ff6619;
+    background-color: #ff7b15;
 }
 
 .admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover {
