@@ -80,7 +80,11 @@ h1 {
 
 table {
     width: 80%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Necesario para que funcione border-radius */
+    border-spacing: 0; /* Elimina espacios entre celdas */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que los bordes redondeados sean visibles */
+    border: 1px solid #ccc; /* Bordes externos de la tabla */
     margin-top: 10px;
 }
 
@@ -108,4 +112,58 @@ thead th:nth-child(2), tbody td:nth-child(2) {
 
 thead th:last-child, tbody td:last-child {
     width: 5%; /* Ajusta el ancho de la columna del botón */
+}
+
+dialog {
+    width: 500px; /* Ajusta el ancho */
+    border: none;
+    border-radius: 12px; /* Bordes más redondeados */
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    font-family: Arial, sans-serif; /* Fuente más moderna */
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+}
+
+form p {
+    font-size: 16px; /* Tamaño de fuente del texto */
+    margin-bottom: 10px; /* Espaciado debajo del texto */
+}
+
+select {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 8px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 6px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espaciado debajo del select */
+}
+
+input[type="submit"], input[type="button"] {
+    padding: 10px 20px; /* Tamaño de los botones */
+    font-size: 14px; /* Tamaño de texto en botones */
+    color: #fff; /* Texto blanco */
+    background-color: #4CAF50; /* Color verde para los botones */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el ratón */
+}
+
+input[type="button"].cancelar-grupo {
+    background-color: #f44336; /* Color rojo para el botón de cancelar */
+}
+
+input[type="button"].cancelar-grupo:hover {
+    background-color: #d32f2f; /* Color más oscuro al pasar el ratón */
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
 }

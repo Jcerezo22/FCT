@@ -1,6 +1,6 @@
 <?php
-    /* Muestra los grupos que hay en la base de datos*/
-    function mostrarUsuarios()
+    /* Busca los grupos que hay en la base de datos*/
+    function buscarUsuarios()
     {
         $conn = abrirBD();
 
@@ -20,8 +20,30 @@
         $conn = cerrarBD($conn);
     }
 
-    /* Muestra los usuarios de cada grupo que hay en la base de datos*/
-    function mostrarUsuPorGrupos($grupo_id)
+    /* Muestra los grupos que hay en la base de datos*/
+    function mostrarUsuarios()
+    {
+        $conn = abrirBD();
+
+        try {
+            $stmt = $conn->prepare("SELECT nombre FROM usuarios");
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado=$stmt->fetchAll();
+            foreach($resultado as $row) {
+                echo "<option value='". $row["nombre"] ."'>" . $row["nombre"] ."</option><br>";
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
+
+    /* Busca los usuarios de cada grupo que hay en la base de datos*/
+    function buscarUsuPorGrupos($grupo_id)
     {
         $conn = abrirBD();
 
@@ -42,8 +64,8 @@
         $conn = cerrarBD($conn);
     }
 
-    /* Muestra los grupos que hay en la base de datos*/
-    function mostrarGrupos()
+    /* Busca los grupos que hay en la base de datos*/
+    function buscarGrupos()
     {
         $conn = abrirBD();
 

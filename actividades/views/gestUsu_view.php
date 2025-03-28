@@ -18,11 +18,11 @@
                 <button class="new-group">+ Nuevo grupo</button>
                 <table>
                     <?php 
-                        $grupos = mostrarGrupos();
+                        $grupos = buscarGrupos();
                         
                         foreach($grupos as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td><td>";
-                            $usuPorGrupo = mostrarUsuPorGrupos($row["id"]);
+                            $usuPorGrupo = buscarUsuPorGrupos($row["id"]);
                             if(!empty($usuPorGrupo))
                             {
                                 if(count($usuPorGrupo) > 1)
@@ -43,27 +43,30 @@
                             {
                                 echo "...";
                             }
-                            echo "</td><td><button class='edit' id='edit-group'>✏️</button></td></tr>";
+                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>✏️</button></td></tr>";
+                            echo "
+                            <dialog id='dialog-edit-group-". $row["id"] ."'>
+                                <form method='post' id='edit-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <p>Añadir al grupo de <b>". $row["nombre"]  ."</b> a <p>
+                                    <select name='usuarios' class='form-control'>";
+                                        mostrarUsuarios();
+                            echo "
+                                    </select><BR><BR>
+                                    <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
+                                    <input type='button' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
+                                    <button type='button' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'>Cancelar</button>
+                                </form>
+                            </dialog>";
                         }
                     ?>
                 </table>
-                <dialog id="dialog-edit-group">
-                    <form method="dialog" id="edit-group">
-                        <label for="nomUsuR">Nombre de usuario: </label>
-                        <input type="text" id="nomUsuR" name="nomUsuR"><br><br>
-                        <label for="contraR">Contraseña: </label>
-                        <input type="password" id="contraR" name="contraR"><br><br>
-                        <input type="button" value="Aceptar" name="Aceptar" id="aplicar-grupo">
-                        <input type="button" value="Cancelar" name="Cancelar" id="cancelar-grupo">
-                    </form>
-                </dialog>
             </div>
             <div class="users">
                 <button class="manage-users">Usuarios</button>
                 <button class="new-user">+ Nuevo usuario</button>
                 <table>
                     <?php 
-                        $usuarios = mostrarUsuarios();
+                        $usuarios = buscarUsuarios();
                         
                         foreach($usuarios as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td><td>". $row["nombreRol"] ."</td><td><button class='edit'>✏️</button></td></tr>";
