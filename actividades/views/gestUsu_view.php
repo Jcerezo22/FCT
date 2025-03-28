@@ -47,14 +47,14 @@
                             echo "
                             <dialog id='dialog-edit-group-". $row["id"] ."'>
                                 <form method='post' id='edit-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <p>Añadir al grupo de <b>". $row["nombre"]  ."</b> a <p>
+                                    <div class='form-row'><p>Añadir al grupo de <b>". $row["nombre"]  ."</b> a </p>
                                     <select name='usuarios' class='form-control'>";
                                         mostrarUsuarios();
                             echo "
-                                    </select><BR><BR>
+                                    </select></div><br>
                                     <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
                                     <input type='button' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
-                                    <button type='button' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'>Cancelar</button>
+                                    <input type='button' value='Cancelar'class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
                         }

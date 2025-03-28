@@ -39,7 +39,7 @@ h1 {
     z-index: 1000;
 }
 
-.admin-button, .new-group, .new-user, button.edit, .manage-users {
+.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"],  input[type="button"].cancelar-grupo {
     padding: 10px 14px; 
     font-size: 14px; 
     font-weight: bold;
@@ -51,19 +51,19 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 }
 
-.admin-button.volver, .manage-users, button.edit {
+.admin-button.volver, .manage-users, button.edit, input[type="submit"], input[type="button"] {
     background-color: #28a745;
 }
 
-.admin-button.volver:hover, button.edit:hover {
+.admin-button.volver:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
     background-color: #218838;
 }
 
-.new-group, .new-user {
+.new-group, .new-user, input[type="button"].cancelar-grupo  {
     background-color: #ff9019;
 }
 
-.new-group:hover , .new-user:hover {
+.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover {
     background-color: #ff7b15;
 }
 
@@ -115,7 +115,7 @@ thead th:last-child, tbody td:last-child {
 }
 
 dialog {
-    width: 500px; /* Ajusta el ancho */
+    width: 450px; /* Ajusta el ancho */
     border: none;
     border-radius: 12px; /* Bordes más redondeados */
     padding: 20px;
@@ -129,41 +129,45 @@ dialog::backdrop {
 
 form p {
     font-size: 16px; /* Tamaño de fuente del texto */
-    margin-bottom: 10px; /* Espaciado debajo del texto */
+    display: inline; /* Cambia el comportamiento del párrafo a inline */
 }
 
 select {
-    width: 100%; /* Ocupa todo el ancho disponible */
+    display: inline-block; /* Asegura que el select esté en la misma línea */
+    vertical-align: middle; /* Alinea el select con el texto */
+    width: 40%; /* Ocupa casi todo el ancho del diálogo */
     padding: 8px; /* Espaciado interno */
     font-size: 14px; /* Tamaño de fuente */
     border: 1px solid #ccc; /* Borde gris claro */
     border-radius: 6px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espaciado debajo del select */
-}
-
-input[type="submit"], input[type="button"] {
-    padding: 10px 20px; /* Tamaño de los botones */
-    font-size: 14px; /* Tamaño de texto en botones */
-    color: #fff; /* Texto blanco */
-    background-color: #4CAF50; /* Color verde para los botones */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover, input[type="button"]:hover {
-    background-color: #45a049; /* Color más oscuro al pasar el ratón */
-}
-
-input[type="button"].cancelar-grupo {
-    background-color: #f44336; /* Color rojo para el botón de cancelar */
-}
-
-input[type="button"].cancelar-grupo:hover {
-    background-color: #d32f2f; /* Color más oscuro al pasar el ratón */
 }
 
 .dialog-buttons {
     display: flex;
     justify-content: space-between; /* Espaciado entre botones */
+}
+
+form {
+    display: flex; /* Usar flexbox dentro del formulario */
+    flex-direction: column; /* Alinear elementos en columna */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+.form-row {
+    display: flex; /* Coloca los elementos en una fila */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 10px; /* Espaciado entre texto y select */
+}
+
+.form-row p {
+    margin: 0;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.form-row select {
+    flex-grow: 1; /* Hace que el select ocupe todo el espacio restante */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
