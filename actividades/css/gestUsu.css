@@ -67,7 +67,7 @@ h1 {
     background-color: #ff7b15;
 }
 
-.admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover {
+.admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
