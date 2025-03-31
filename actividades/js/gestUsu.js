@@ -22,6 +22,8 @@ $(document).ready(function () {
         const dialog = document.getElementById(`dialog-edit-rol-${rolId}`);
         if (dialog) {
             dialog.showModal();
+        } else {
+            console.error("El diálogo con ID especificado no existe.");
         }
     });
 
