@@ -39,7 +39,7 @@ h1 {
     z-index: 1000;
 }
 
-.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"],  input[type="button"].cancelar-grupo {
+.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"], input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol {
     padding: 10px 14px; 
     font-size: 14px; 
     font-weight: bold;
@@ -59,11 +59,11 @@ h1 {
     background-color: #218838;
 }
 
-.new-group, .new-user, input[type="button"].cancelar-grupo  {
+.new-group, .new-user, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol  {
     background-color: #ff9019;
 }
 
-.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover {
+.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover {
     background-color: #ff7b15;
 }
 
