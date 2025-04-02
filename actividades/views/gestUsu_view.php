@@ -76,7 +76,7 @@
                                 <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
                                     <select name='usuarios' class='form-control'>";
-                                        mostrarUsuarios($row["id"]);
+                                        mostrarRoles($row["nombreRol"]);
                             echo "
                                     </select></div><br>
                                     <input type='hidden' name='rol_id' value='". $row["id"] ."'>
