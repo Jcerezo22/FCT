@@ -16,6 +16,15 @@
             <div class="groups">
                 <button class="manage-users">Grupos</button>
                 <button class="new-group">+ Nuevo grupo</button>
+                <dialog id="dialog-new-group">
+                    <form method='post' id='new-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                        <div class='form-row'><p>Crear grupo de </p>
+
+                        </div>
+                        <input type='button' value='Aplicar' name='Aplicar' id='aplicar-nuevo-grupo'>
+                        <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                    </form>
+                </dialog>
                 <table>
                     <?php 
                         $grupos = buscarGrupos();
@@ -54,7 +63,7 @@
                                     </select></div><br>
                                     <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
                                     <input type='button' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
-                                    <input type='button' value='Cancelar'class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                                    <input type='button' value='Cancelar' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
                         }
@@ -64,6 +73,15 @@
             <div class="users">
                 <button class="manage-users">Usuarios</button>
                 <button class="new-user">+ Nuevo usuario</button>
+                <dialog id="dialog-new-user">
+                    <form method='post' id='new-user' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                        <div class='form-row'><p>Crear grupo de </p>
+
+                        </div>
+                        <input type='button' value='Aplicar' name='Aplicar' id='aplicar-nuevo-usuario'>
+                        <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                    </form>
+                </dialog>
                 <table>
                     <?php 
                         $usuarios = buscarUsuarios();
@@ -81,7 +99,7 @@
                                     </select></div><br>
                                     <input type='hidden' name='rol_id' value='". $row["id"] ."'>
                                     <input type='button' value='Aplicar' name='Aplicar' id='aplicar-rol'>
-                                    <input type='button' value='Cancelar'class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
+                                    <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
                         }

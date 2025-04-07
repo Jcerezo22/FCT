@@ -59,11 +59,11 @@ h1 {
     background-color: #218838;
 }
 
-.new-group, .new-user, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol  {
+.new-group, .new-user, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol, input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario  {
     background-color: #ff9019;
 }
 
-.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover {
+.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover, input[type="button"].cancelar-nuevo-grupo:hover, input[type="button"].cancelar-nuevo-usuario:hover {
     background-color: #ff7b15;
 }
 
