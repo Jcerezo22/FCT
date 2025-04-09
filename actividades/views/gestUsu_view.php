@@ -18,8 +18,8 @@
                 <button class="new-group">+ Nuevo grupo</button>
                 <dialog id="dialog-new-group">
                     <form method='post' id='new-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                        <div class='form-row'><p>Crear grupo de </p>
-
+                        <div class='form-row'>
+                            <input type="text" name="name" placeholder="Nombre del grupo" class="inputDialog" size="49">
                         </div>
                         <input type='button' value='Aplicar' name='Aplicar' id='aplicar-nuevo-grupo'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
@@ -75,10 +75,10 @@
                 <button class="new-user">+ Nuevo usuario</button>
                 <dialog id="dialog-new-user">
                     <form method='post' id='new-user' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                        <div class='form-row'><p>Crear grupo de </p>
-
+                        <div class='form-row'>
+                            <input type="text" name="name" placeholder="Nombre del usuario" class="inputDialog"  size="49">
                         </div>
-                        <input type='button' value='Aplicar' name='Aplicar' id='aplicar-nuevo-usuario'>
+                        <input type='submit' value='Añadir' name='Añadir' id='annadir-usuario'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                     </form>
                 </dialog>

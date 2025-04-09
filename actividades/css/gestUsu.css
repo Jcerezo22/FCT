@@ -127,6 +127,17 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
 }
 
+.inputDialog{
+    padding: 10px 14px; 
+    font-size: 14px; 
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
 form p {
     font-size: 16px; /* Tamaño de fuente del texto */
     display: inline; /* Cambia el comportamiento del párrafo a inline */
