@@ -17,11 +17,11 @@
                 <button class="manage-users">Grupos</button>
                 <button class="new-group">+ Nuevo grupo</button>
                 <dialog id="dialog-new-group">
-                    <form method='post' id='new-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                    <form method='post' name="new-group" id='new-group' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
-                            <input type="text" name="name" placeholder="Nombre del grupo" class="inputDialog" size="49">
+                            <input type="text" name="name" placeholder="Nombre del nuevo grupo" class="inputDialog" size="49">
                         </div>
-                        <input type='button' value='Aplicar' name='Aplicar' id='aplicar-nuevo-grupo'>
+                        <input type='submit' value='Añadir' name='Añadir' id='añadir-grupo'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                     </form>
                 </dialog>
@@ -62,7 +62,7 @@
                             echo "
                                     </select></div><br>
                                     <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
-                                    <input type='button' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
+                                    <input type='submit' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
                                     <input type='button' value='Cancelar' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
@@ -74,9 +74,9 @@
                 <button class="manage-users">Usuarios</button>
                 <button class="new-user">+ Nuevo usuario</button>
                 <dialog id="dialog-new-user">
-                    <form method='post' id='new-user' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                    <form method='post' name="new-user" id='new-user' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
-                            <input type="text" name="name" placeholder="Nombre del usuario" class="inputDialog"  size="49">
+                            <input type="text" name="name" placeholder="Nombre del nuevo usuario" class="inputDialog"  size="49">
                         </div>
                         <input type='submit' value='Añadir' name='Añadir' id='annadir-usuario'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
@@ -98,7 +98,7 @@
                             echo "
                                     </select></div><br>
                                     <input type='hidden' name='rol_id' value='". $row["id"] ."'>
-                                    <input type='button' value='Aplicar' name='Aplicar' id='aplicar-rol'>
+                                    <input type='submit' value='Aplicar' name='Aplicar' id='aplicar-rol'>
                                     <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
