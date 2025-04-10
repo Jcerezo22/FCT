@@ -39,7 +39,7 @@ h1 {
     z-index: 1000;
 }
 
-.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"], input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol {
+.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"] {
     padding: 10px 14px; 
     font-size: 14px; 
     font-weight: bold;
@@ -70,6 +70,11 @@ h1 {
 .admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
     opacity: 0.9;
     transform: scale(1.05);
+}
+
+input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="submit"]#añadir-usuario,  input[type="submit"]#añadir-grupo {
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 0; /* Espacio mínimo entre los botones */
 }
 
 .groups, .users {
