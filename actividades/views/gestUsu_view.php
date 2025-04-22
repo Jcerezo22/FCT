@@ -21,7 +21,7 @@
                         <div class='form-row'>
                             <input type="text" name="name" placeholder="Nombre del nuevo grupo" class="inputDialog" size="49">
                         </div>
-                        <input type='submit' value='Añadir' name='Añadir' id='añadir-grupo'>
+                        <input type='submit' value='Añadir' name='añadirGrupo' id='añadir-grupo'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                     </form>
                 </dialog>
@@ -62,7 +62,7 @@
                             echo "
                                     </select></div><br>
                                     <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='Aplicar' id='aplicar-grupo'>
+                                    <input type='submit' value='Aplicar' name='aplicarGrupo' id='aplicar-grupo'>
                                     <input type='button' value='Cancelar' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
@@ -78,7 +78,7 @@
                         <div class='form-row'>
                             <input type="text" name="name" placeholder="Nombre del nuevo usuario" class="inputDialog"  size="49">
                         </div>
-                        <input type='submit' value='Añadir' name='Añadir' id='annadir-usuario'>
+                        <input type='submit' value='Añadir' name='añadirUsuario' id='annadir-usuario'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
                     </form>
                 </dialog>
@@ -93,12 +93,12 @@
                             <dialog id='dialog-edit-rol-". $row["id"] ."'>
                                 <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
-                                    <select name='usuarios' class='form-control'>";
+                                    <select name='roles' class='form-control'>";
                                         mostrarRoles($row["nombreRol"]);
                             echo "
                                     </select></div><br>
-                                    <input type='hidden' name='rol_id' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='Aplicar' id='aplicar-rol'>
+                                    <input type='hidden' name='id_usuario' value='". $row["id"] ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
                                     <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";

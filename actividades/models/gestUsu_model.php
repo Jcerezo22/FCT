@@ -115,4 +115,69 @@
 
         $conn = cerrarBD($conn);
     }
+
+    //Inserta un nuevo grupo en la base de datos 
+    function insertarGrupo($nombre)
+    {
+        $conn = abrirBD();
+
+        try {
+            $conn->beginTransaction();
+            $stmt = $conn->prepare("INSERT INTO grupos (nombre) VALUES (:nombre)");
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->execute();
+            $conn->commit();
+        }
+        catch(PDOException $e)
+        {
+            $conn->rollBack();
+            echo $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
+
+    //Actualiza el grupo del usuario indicado
+    function actualizarGrupo($grupo_id, $usuario)
+    {
+        $conn = abrirBD();
+
+        try {
+            $conn->beginTransaction();
+            $stmt = $conn->prepare("UPDATE usuarios SET grupo_id = :grupo_id WHERE nombre = :usuario");
+            $stmt->bindParam(':grupo_id', $grupo_id);
+            $stmt->bindParam(':usuario', $usuario);
+            $stmt->execute();
+            $conn->commit();
+        }
+        catch(PDOException $e)
+        {
+            $conn->rollBack();
+            echo $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
+
+    //Actualiza el rol del usuario indicado
+    function actualizarRol($rol_id, $id_usuario)
+    {
+        $conn = abrirBD();
+
+        try {
+            $conn->beginTransaction();
+            $stmt = $conn->prepare("UPDATE usuarios SET rol_id = :rol_id WHERE id_usuario = :id_usuario");
+            $stmt->bindParam(':rol_id', $rol_id);
+            $stmt->bindParam(':id_usuario', $id_usuario);
+            $stmt->execute();
+            $conn->commit();
+        }
+        catch(PDOException $e)
+        {
+            $conn->rollBack();
+            echo $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
 ?>
