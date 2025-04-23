@@ -5,7 +5,7 @@
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT id_usuario, nombre, rol_id, grupo_id FROM usuarios WHERE nombre = :usuario");
+            $stmt = $conn->prepare("SELECT a.id_usuario, a.nombre, a.rol_id, b.id_grupo FROM usuarios a, grupo_usuario b WHERE nombre = :usuario AND a.id_usuario = b.id_usuario");
             $stmt->bindParam(':usuario', $usuario);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);

@@ -21,13 +21,13 @@
     }
 
     /* Busca los usuarios del grupo pasado por parametro*/
-    function buscarUsuPorGrupos($grupo_id)
+    function buscarUsuPorGrupos($id_grupo)
     {
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT nombre FROM usuarios WHERE grupo_id = :grupo_id");
-            $stmt->bindParam(':grupo_id', $grupo_id);
+            $stmt = $conn->prepare("SELECT a.nombre FROM usuarios a, grupo_usuario b WHERE b.id_grupo = :id_grupo AND a.id_usuario = b.id_usuario");
+            $stmt->bindParam(':id_grupo', $id_grupo);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
@@ -64,13 +64,13 @@
     }
 
     /* Muestra como opciones los usuarios que no estan en el grupo pasado por parametro */
-    function mostrarUsuarios($grupo_id)
+    function mostrarUsuarios($id_grupo)
     {
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT nombre FROM usuarios WHERE grupo_id != :grupo_id");
-            $stmt->bindParam(':grupo_id', $grupo_id);
+            $stmt = $conn->prepare("SELECT a.nombre FROM usuarios a, grupo_usuario b WHERE b.id_grupo != :id_grupo AND a.id_usuario = b.id_usuario");
+            $stmt->bindParam(':id_grupo', $id_grupo);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
@@ -138,14 +138,14 @@
     }
 
     //Actualiza el grupo del usuario indicado
-    function actualizarGrupo($grupo_id, $usuario)
+    function actualizarGrupo($id_grupo, $usuario)
     {
         $conn = abrirBD();
 
         try {
             $conn->beginTransaction();
-            $stmt = $conn->prepare("UPDATE usuarios SET grupo_id = :grupo_id WHERE nombre = :usuario");
-            $stmt->bindParam(':grupo_id', $grupo_id);
+            $stmt = $conn->prepare("UPDATE usuarios SET id_grupo = :id_grupo WHERE nombre = :usuario");
+            $stmt->bindParam(':id_grupo', $id_grupo);
             $stmt->bindParam(':usuario', $usuario);
             $stmt->execute();
             $conn->commit();
