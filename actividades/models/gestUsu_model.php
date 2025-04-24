@@ -64,12 +64,12 @@
     }
 
     /* Muestra como opciones los usuarios que no estan en el grupo pasado por parametro */
-    function mostrarUsuarios($id_grupo)
+    function mostrarUsuariosAñadir($id_grupo)
     {
         $conn = abrirBD();
 
         try {
-            $stmt = $conn->prepare("SELECT a.nombre FROM usuarios a, grupo_usuario b WHERE b.id_grupo != :id_grupo AND a.id_usuario = b.id_usuario");
+            $stmt = $conn->prepare("SELECT a.nombre, a.id_usuario FROM usuarios a JOIN grupo_usuario b ON a.id_usuario = b.id_usuario WHERE NOT EXISTS (SELECT 1 FROM grupo_usuario b2 WHERE b2.id_usuario = a.id_usuario AND b2.id_grupo = :id_grupo) GROUP BY a.id_usuario, a.nombre");
             $stmt->bindParam(':id_grupo', $id_grupo);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -77,12 +77,42 @@
             if(!empty($resultado))
             {
                 foreach($resultado as $row) {
-                    echo "<option value='". $row["nombre"] ."'>" . $row["nombre"] ."</option><br>";
+                    echo "<option value='". $row["id_usuario"] ."'>" . $row["nombre"] ."</option><br>";
                 }
             }
             else
             {
-                echo "<option value='1'>Todos los usuarios pertenecen a este grupo</option><br>";
+                echo "<option value='0'>Todos los usuarios pertenecen a este grupo</option><br>";
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
+
+    /* Muestra como opciones los usuarios que estan en el grupo pasado por parametro */
+    function mostrarUsuariosEliminar($id_grupo)
+    {
+        $conn = abrirBD();
+
+        try {
+            $stmt = $conn->prepare("SELECT a.nombre, a.id_usuario FROM usuarios a, grupo_usuario b WHERE b.id_grupo = :id_grupo AND a.id_usuario = b.id_usuario");
+            $stmt->bindParam(':id_grupo', $id_grupo);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado=$stmt->fetchAll();
+            if(!empty($resultado))
+            {
+                foreach($resultado as $row) {
+                    echo "<option value='". $row["id_usuario"] ."'>" . $row["nombre"] ."</option><br>";
+                }
+            }
+            else
+            {
+                echo "<option value='0'>Ningún usuario pertenece a este grupo</option><br>";
             }
         }
         catch(PDOException $e)
@@ -137,16 +167,38 @@
         $conn = cerrarBD($conn);
     }
 
-    //Actualiza el grupo del usuario indicado
-    function actualizarGrupo($id_grupo, $usuario)
+    //Añade al grupo al usuario indicado
+    function añadirAlGrupo($id_grupo, $id_usuario)
     {
         $conn = abrirBD();
 
         try {
             $conn->beginTransaction();
-            $stmt = $conn->prepare("UPDATE usuarios SET id_grupo = :id_grupo WHERE nombre = :usuario");
+            $stmt = $conn->prepare("INSERT INTO grupo_usuario (id_grupo,id_usuario) VALUES (:id_grupo,:id_usuario)");
             $stmt->bindParam(':id_grupo', $id_grupo);
-            $stmt->bindParam(':usuario', $usuario);
+            $stmt->bindParam(':id_usuario', $id_usuario);
+            $stmt->execute();
+            $conn->commit();
+        }
+        catch(PDOException $e)
+        {
+            $conn->rollBack();
+            echo $e->getMessage();
+        }
+
+        $conn = cerrarBD($conn);
+    }
+
+    //Elimina del grupo al usuario indicado
+    function eliminarDelGrupo($id_grupo, $id_usuario)
+    {
+        $conn = abrirBD();
+
+        try {
+            $conn->beginTransaction();
+            $stmt = $conn->prepare("DELETE FROM grupo_usuario WHERE id_grupo = :id_grupo AND id_usuario = :id_usuario");
+            $stmt->bindParam(':id_grupo', $id_grupo);
+            $stmt->bindParam(':id_usuario', $id_usuario);
             $stmt->execute();
             $conn->commit();
         }

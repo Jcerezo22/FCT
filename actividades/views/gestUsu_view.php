@@ -52,18 +52,32 @@
                             {
                                 echo "...";
                             }
-                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>✏️</button></td></tr>";
+                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>✏️</button></td>";
+                            echo "<td><button class='edit delete-user-group' data-group-id='". $row["id"] ."'>🗑️</button></td></tr>";
                             echo "
                             <dialog id='dialog-edit-group-". $row["id"] ."'>
                                 <form method='post' id='edit-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>Añadir al grupo de <b>". $row["nombre"]  ."</b> a </p>
                                     <select name='usuarios' class='form-control'>";
-                                        mostrarUsuarios($row["id"]);
+                                        mostrarUsuariosAñadir($row["id"]);
                             echo "
                                     </select></div><br>
                                     <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
                                     <input type='submit' value='Aplicar' name='aplicarGrupo' id='aplicar-grupo'>
                                     <input type='button' value='Cancelar' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                                </form>
+                            </dialog>";
+                            echo "
+                            <dialog id='dialog-delete-user-group-". $row["id"] ."'>
+                                <form method='post' id='delete-user-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'><p>Eliminar del grupo de <b>". $row["nombre"]  ."</b> a </p>
+                                    <select name='usuarios' class='form-control'>";
+                                        mostrarUsuariosEliminar($row["id"]);
+                            echo "
+                                    </select></div><br>
+                                    <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                    <input type='button' value='Cancelar' class='cancelar-eliminar-usuario-grupo' data-dialog-id='dialog-delete-user-group-". $row["id"] ."'></input>
                                 </form>
                             </dialog>";
                         }

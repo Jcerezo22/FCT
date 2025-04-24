@@ -19,11 +19,22 @@
         if(isset($_POST["aplicarGrupo"]))
         {     
             $grupo_id = limpiarDatos($_POST["grupo_id"]);
-            $usuario = limpiarDatos($_POST["usuarios"]);
+            $id_usuario = limpiarDatos($_POST["usuarios"]);
             
-            if($usuario != 1)
+            if($id_usuario != 0)
             {
-                actualizarGrupo($grupo_id, $usuario);
+                añadirAlGrupo($grupo_id, $id_usuario);
+            }
+        }
+
+        if(isset($_POST["aplicarEliminarDelGrupo"]))
+        {     
+            $grupo_id = limpiarDatos($_POST["grupo_id"]);
+            $id_usuario = limpiarDatos($_POST["usuarios"]);
+            
+            if($id_usuario != 0)
+            {
+                eliminarDelGrupo($grupo_id, $id_usuario);
             }
         }
 
