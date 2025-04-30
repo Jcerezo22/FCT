@@ -52,8 +52,8 @@
                             {
                                 echo "...";
                             }
-                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>✏️</button></td>";
-                            echo "<td><button class='edit delete-user-group' data-group-id='". $row["id"] ."'>🗑️</button></td></tr>";
+                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>+</button></td>";
+                            echo "<td><button class='edit delete-user-group' data-group-id='". $row["id"] ."'>–</button></td></tr>";
                             echo "
                             <dialog id='dialog-edit-group-". $row["id"] ."'>
                                 <form method='post' id='edit-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
