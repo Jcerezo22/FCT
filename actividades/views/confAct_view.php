@@ -19,7 +19,7 @@
                 <dialog id="dialog-new-group">
                     <form method='post' name="new-group" id='new-group' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
-                            <input type="text" name="name" placeholder="Nombre del nuevo grupo" class="inputDialog" size="49">
+                            <input type="text" name="name" placeholder="Titulo de la nueva pregunta" class="inputDialog" size="49">
                         </div>
                         <input type='submit' value='Añadir' name='añadirGrupo' id='añadir-grupo'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
@@ -90,7 +90,7 @@
                 <dialog id="dialog-new-user">
                     <form method='post' name="new-user" id='new-user' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
-                            <input type="text" name="name" placeholder="Nombre del nuevo usuario" class="inputDialog"  size="49">
+                            <input type="text" name="name" placeholder="Nombre de la nueva acción" class="inputDialog"  size="49">
                         </div>
                         <input type='submit' value='Añadir' name='añadirUsuario' id='annadir-usuario'>
                         <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
