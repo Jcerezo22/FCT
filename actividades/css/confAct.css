@@ -39,7 +39,7 @@ h1 {
     z-index: 1000;
 }
 
-.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"] {
+.admin-button, .new-question, .new-action, button.edit, .manage-questions, .manage-actions, .manage-events, input[type="submit"], input[type="button"] {
     padding: 10px 14px; 
     font-size: 14px; 
     font-weight: bold;
@@ -51,7 +51,7 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
 }
 
-.admin-button.volver, .manage-users, button.edit, input[type="submit"], input[type="button"] {
+.admin-button.volver, .manage-questions, .manage-actions, .manage-events, button.edit, input[type="submit"], input[type="button"] {
     background-color: #007bff;
 }
 
@@ -59,15 +59,15 @@ h1 {
     background-color: #0056b3;
 }
 
-.new-group, .new-user, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol, input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="button"].cancelar-eliminar-usuario-grupo, button.delete-user-group  {
+.new-question, .new-action, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol, input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="button"].cancelar-eliminar-usuario-grupo, button.delete-user-group  {
     background-color: #c919ff;
 }
 
-.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover, input[type="button"].cancelar-nuevo-grupo:hover, input[type="button"].cancelar-nuevo-usuario:hover, input[type="button"].cancelar-eliminar-usuario-grupo:hover, button.delete-user-group:hover {
+.new-question:hover , .new-action:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover, input[type="button"].cancelar-nuevo-grupo:hover, input[type="button"].cancelar-nuevo-usuario:hover, input[type="button"].cancelar-eliminar-usuario-grupo:hover, button.delete-user-group:hover {
     background-color: #9309be;
 }
 
-.admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
+.admin-button:hover, .new-question:hover, .new-action:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
@@ -77,7 +77,7 @@ input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-u
     margin-bottom: 0; /* Espacio mínimo entre los botones */
 }
 
-.groups, .users {
+.questions, .actions, .events {
     margin-top: 5%;
     width: 80%;
     margin-left: 20%;

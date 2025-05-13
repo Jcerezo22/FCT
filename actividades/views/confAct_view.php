@@ -13,97 +13,62 @@
             <div class="admin-container">
                 <button type="button" class="admin-button volver" onclick="window.location.href='../index.php'">Volver</button>	
             </div>  
-            <div class="groups">
-                <button class="manage-users">Preguntas</button>
-                <button class="new-group">+ Nueva pregunta</button>
-                <dialog id="dialog-new-group">
-                    <form method='post' name="new-group" id='new-group' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+            <div class="questions">
+                <button class="manage-questions">Preguntas</button>
+                <button class="new-question">+ Nueva pregunta</button>
+                <dialog id="dialog-new-question">
+                    <form method='post' name="new-question" id='new-question' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
                             <input type="text" name="name" placeholder="Titulo de la nueva pregunta" class="inputDialog" size="49">
                         </div>
-                        <input type='submit' value='Añadir' name='añadirGrupo' id='añadir-grupo'>
-                        <input type='button' value='Cancelar'class='cancelar-nuevo-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                        <input type='submit' value='Añadir' name='añadirPregunta' id='añadir-pregunta'>
+                        <input type='button' value='Cancelar'class='cancelar-nueva-pregunta'></input>
                     </form>
                 </dialog>
                 <table>
                     <?php 
-                        /*$grupos = buscarGrupos();
+                        $preguntas = buscarPreguntas();
                         
-                        foreach($grupos as $row) {
-                            echo "<tr><td>". $row["nombre"] ."</td><td>";
-                            $usuPorGrupo = buscarUsuPorGrupos($row["id"]);
-                            if(!empty($usuPorGrupo))
-                            {
-                                if(count($usuPorGrupo) > 1)
-                                {
-                                    for($i=0 ; $i<2 ; $i++){
-                                        if($i==0)
-                                            echo $usuPorGrupo[$i]["nombre"]. ", ";
-                                        else    
-                                            echo $usuPorGrupo[$i]["nombre"]. "...";
-                                    }
-                                }
-                                else
-                                {
-                                    echo $usuPorGrupo[0]["nombre"];
-                                }
-                            }
-                            else
-                            {
-                                echo "...";
-                            }
-                            echo "</td><td><button class='edit edit-group' data-group-id='". $row["id"] ."'>✏️</button></td>";
-                            echo "<td><button class='edit delete-user-group' data-group-id='". $row["id"] ."'>🗑️</button></td></tr>";
-                            echo "
-                            <dialog id='dialog-edit-group-". $row["id"] ."'>
-                                <form method='post' id='edit-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <div class='form-row'><p>Añadir al grupo de <b>". $row["nombre"]  ."</b> a </p>
-                                    <select name='usuarios' class='form-control'>";
-                                        mostrarUsuariosAñadir($row["id"]);
+                        foreach($preguntas as $row) {
+                            echo "<tr><td>". $row["titulo"] ."</td>";
+                            echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td></tr>";
+                            /*echo "
+                            <dialog id='dialog-edit-rol-". $row["id"] ."'>
+                                <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
+                                    <select name='roles' class='form-control'>";
+                                        mostrarRoles($row["nombreRol"]);
                             echo "
                                     </select></div><br>
-                                    <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarGrupo' id='aplicar-grupo'>
-                                    <input type='button' value='Cancelar' class='cancelar-grupo' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                                    <input type='hidden' name='id_usuario' value='". $row["id"] ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
+                                    <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
-                            </dialog>";
-                            echo "
-                            <dialog id='dialog-delete-user-group-". $row["id"] ."'>
-                                <form method='post' id='delete-user-group' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <div class='form-row'><p>Eliminar del grupo de <b>". $row["nombre"]  ."</b> a </p>
-                                    <select name='usuarios' class='form-control'>";
-                                        mostrarUsuariosEliminar($row["id"]);
-                            echo "
-                                    </select></div><br>
-                                    <input type='hidden' name='grupo_id' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
-                                    <input type='button' value='Cancelar' class='cancelar-eliminar-usuario-grupo' data-dialog-id='dialog-delete-user-group-". $row["id"] ."'></input>
-                                </form>
-                            </dialog>";
-                        }*/
+                            </dialog>";*/
+                        }
                     ?>
                 </table>
             </div>
-            <div class="users">
-                <button class="manage-users">Acciones</button>
-                <button class="new-user">+ Nueva acción</button>
-                <dialog id="dialog-new-user">
-                    <form method='post' name="new-user" id='new-user' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+            <div class="actions">
+                <button class="manage-actions">Acciones</button>
+                <button class="new-action">+ Nueva acción</button>
+                <dialog id="dialog-new-action">
+                    <form method='post' name="new-action" id='new-action' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
                         <div class='form-row'>
                             <input type="text" name="name" placeholder="Nombre de la nueva acción" class="inputDialog"  size="49">
                         </div>
-                        <input type='submit' value='Añadir' name='añadirUsuario' id='annadir-usuario'>
-                        <input type='button' value='Cancelar'class='cancelar-nuevo-usuario' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                        <input type='submit' value='Añadir' name='añadirAccion' id='annadir-accion'>
+                        <input type='button' value='Cancelar'class='cancelar-nueva-accion'></input>
                     </form>
                 </dialog>
                 <table>
                     <?php 
-                        /*$usuarios = buscarUsuarios();
+                        $acciones = buscarAcciones();
                         
-                        foreach($usuarios as $row) {
-                            echo "<tr><td>". $row["nombre"] ."</td><td>". $row["nombreRol"] ."</td>";
-                            echo "<td><button class='edit edit-rol' data-rol-id='". $row["id"] ."'>✏️</button></td></tr>";
-                            echo "
+                        foreach($acciones as $row) {
+                            echo "<tr><td>". $row["nombre"] ."</td>";
+                            echo "<td><button class='edit edit-action' data-action-id='". $row["id_accion"] ."'>✏️</button></td></tr>";
+                            /*echo "
                             <dialog id='dialog-edit-rol-". $row["id"] ."'>
                                 <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
@@ -115,21 +80,21 @@
                                     <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
                                     <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
-                            </dialog>";
-                        }*/
+                            </dialog>";*/
+                        }
                     ?>
                 </table>
             </div>
-            <div class="users">
-                <button class="manage-users">Eventos</button>
+            <div class="events">
+                <button class="manage-events">Eventos</button>
                 <table>
                     <?php 
-                        /*$usuarios = buscarUsuarios();
+                        $eventos = buscarEventos();
                         
-                        foreach($usuarios as $row) {
-                            echo "<tr><td>". $row["nombre"] ."</td><td>". $row["nombreRol"] ."</td>";
-                            echo "<td><button class='edit edit-rol' data-rol-id='". $row["id"] ."'>✏️</button></td></tr>";
-                            echo "
+                        foreach($eventos as $row) {
+                            echo "<tr><td>". $row["nombre"] ."</td>";
+                            echo "<td><button class='edit edit-event' data-event-id='". $row["id_evento"] ."'>✏️</button></td></tr>";
+                            /*echo "
                             <dialog id='dialog-edit-rol-". $row["id"] ."'>
                                 <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
@@ -141,8 +106,8 @@
                                     <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
                                     <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
                                 </form>
-                            </dialog>";
-                        }*/
+                            </dialog>";*/
+                        }
                     ?>
                 </table>
             </div>
