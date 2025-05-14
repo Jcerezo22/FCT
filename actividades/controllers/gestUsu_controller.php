@@ -13,7 +13,8 @@
         if(isset($_POST["añadirGrupo"]))
         {     
             $nombre = limpiarDatos($_POST["name"]);
-            insertarGrupo($nombre);
+            if($nombre != "")
+                insertarGrupo($nombre);
         }
 
         if(isset($_POST["aplicarGrupo"]))
@@ -44,7 +45,8 @@
             require_once("../models/inicio_model.php");
 
             $usuario = limpiarDatos($_POST["name"]);
-            insertarUsu($usuario);
+            if($usuario != "")
+                insertarUsu($usuario);
         }
 
         if(isset($_POST["aplicarRol"]))

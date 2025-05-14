@@ -5,7 +5,7 @@
         <title>Configurar actividades</title>
         <link rel="stylesheet" href="../css/confAct.css">
         <script src="../js/jquery-3.7.1.min.js"></script>
-		<script src="../js/gestUsu.js" type="text/javascript"></script>
+		<script src="../js/confAct.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -32,19 +32,13 @@
                         foreach($preguntas as $row) {
                             echo "<tr><td>". $row["titulo"] ."</td>";
                             echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td></tr>";
-                            /*echo "
-                            <dialog id='dialog-edit-rol-". $row["id"] ."'>
-                                <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
-                                    <select name='roles' class='form-control'>";
-                                        mostrarRoles($row["nombreRol"]);
                             echo "
-                                    </select></div><br>
-                                    <input type='hidden' name='id_usuario' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
-                                    <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
+                            <dialog id='dialog-edit-question-". $row["id_pregunta"] ."'>
+                                <form method='post' id='edit-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
+                                    <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
                                 </form>
-                            </dialog>";*/
+                            </dialog>";
                         }
                     ?>
                 </table>
@@ -68,19 +62,13 @@
                         foreach($acciones as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td>";
                             echo "<td><button class='edit edit-action' data-action-id='". $row["id_accion"] ."'>✏️</button></td></tr>";
-                            /*echo "
-                            <dialog id='dialog-edit-rol-". $row["id"] ."'>
-                                <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
-                                    <select name='roles' class='form-control'>";
-                                        mostrarRoles($row["nombreRol"]);
                             echo "
-                                    </select></div><br>
-                                    <input type='hidden' name='id_usuario' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
-                                    <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
+                            <dialog id='dialog-edit-action-". $row["id_accion"] ."'>
+                                <form method='post' id='edit-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarCambioAccion' id='aplicar-cambio-accion'>
+                                    <input type='button' value='Cancelar' class='cancelar-cambio-accion' data-dialog-id='dialog-edit-action-". $row["id_accion"] ."'></input>
                                 </form>
-                            </dialog>";*/
+                            </dialog>";
                         }
                     ?>
                 </table>
@@ -94,19 +82,13 @@
                         foreach($eventos as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td>";
                             echo "<td><button class='edit edit-event' data-event-id='". $row["id_evento"] ."'>✏️</button></td></tr>";
-                            /*echo "
-                            <dialog id='dialog-edit-rol-". $row["id"] ."'>
-                                <form method='post' id='edit-rol' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <div class='form-row'><p>Cambiar a <b>". $row["nombre"]  ."</b> al rol de </p>
-                                    <select name='roles' class='form-control'>";
-                                        mostrarRoles($row["nombreRol"]);
                             echo "
-                                    </select></div><br>
-                                    <input type='hidden' name='id_usuario' value='". $row["id"] ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarRol' id='aplicar-rol'>
-                                    <input type='button' value='Cancelar' class='cancelar-rol' data-dialog-id='dialog-edit-rol-". $row["id"] ."'></input>
+                            <dialog id='dialog-edit-event-". $row["id_evento"] ."'>
+                                <form method='post' id='edit-event' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarCambioEvento' id='aplicar-cambio-evento'>
+                                    <input type='button' value='Cancelar' class='cancelar-cambio-evento' data-dialog-id='dialog-edit-event-". $row["id_evento"] ."'></input>
                                 </form>
-                            </dialog>";*/
+                            </dialog>";
                         }
                     ?>
                 </table>

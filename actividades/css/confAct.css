@@ -59,11 +59,11 @@ h1 {
     background-color: #0056b3;
 }
 
-.new-question, .new-action, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol, input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="button"].cancelar-eliminar-usuario-grupo, button.delete-user-group  {
+.new-question, .new-action, input[type="button"].cancelar-cambio-pregunta, input[type="button"].cancelar-cambio-accion, input[type="button"].cancelar-cambio-evento, input[type="button"].cancelar-nueva-pregunta, input[type="button"].cancelar-nueva-accion {
     background-color: #c919ff;
 }
 
-.new-question:hover , .new-action:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover, input[type="button"].cancelar-nuevo-grupo:hover, input[type="button"].cancelar-nuevo-usuario:hover, input[type="button"].cancelar-eliminar-usuario-grupo:hover, button.delete-user-group:hover {
+.new-question:hover , .new-action:hover, input[type="button"].cancelar-cambio-pregunta:hover, input[type="button"].cancelar-cambio-accion:hover, input[type="button"].cancelar-cambio-evento:hover, input[type="button"].cancelar-nueva-pregunta:hover, input[type="button"].cancelar-nueva-accion:hover {
     background-color: #9309be;
 }
 
@@ -108,11 +108,7 @@ table tr:hover {
 }
 
 thead th:first-child, tbody td:first-child {
-    width: 47.5%; /* Ajusta el ancho de la primera columna */
-}
-
-thead th:nth-child(2), tbody td:nth-child(2) {
-    width: 47.5%; /* Ajusta el ancho de la segunda columna */
+    width: 95%; /* Ajusta el ancho de la primera columna */
 }
 
 thead th:last-child, tbody td:last-child {
