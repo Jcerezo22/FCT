@@ -14,6 +14,7 @@
                 </p>
             </div>
             <div class="admin-container">
+                <button type="button" class="admin-button crearAct" onclick="window.location.href='controllers/crearAct_controller.php'">Crear actividades</button>	
                 <button type="button" class="admin-button confAct" onclick="window.location.href='controllers/confAct_controller.php'">Configurar actividades</button>	
                 <!-- Botones segun el rol y permisos -->
                 <?php if($datosUsu["rol_id"] == 1): ?>

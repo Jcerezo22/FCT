@@ -126,7 +126,7 @@ h1 {
     background-color: #007bff;
 }
 
-.admin-button.gestUsu {
+.admin-button.gestUsu, .admin-button.crearAct {
     background-color: #28a745;
 }
 
@@ -134,7 +134,7 @@ h1 {
     background-color: #0056b3;
 }
 
-.admin-button.gestUsu:hover {
+.admin-button.gestUsu:hover, .admin-button.crearAct:hover {
     background-color: #218838;
 }
 

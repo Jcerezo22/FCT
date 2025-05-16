@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: 'Arial', Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+h1 {
+    color: #28a745; 
+    font-size: 2.5em; 
+    font-weight: bold; 
+    text-align: center; 
+    text-transform: uppercase; 
+    margin-top: 50px;
+    margin-bottom: 10px; 
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #28a745, #218838);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Opcional: centra los elementos verticalmente */
+}
+
+.admin-container {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.admin-button, .new-group, .new-user, button.edit, .manage-users, input[type="submit"], input[type="button"] {
+    padding: 10px 14px; 
+    font-size: 14px; 
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.admin-button.volver, .manage-users, button.edit, input[type="submit"], input[type="button"] {
+    background-color: #28a745;
+}
+
+.admin-button.volver:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #218838;
+}
+
+.new-group, .new-user, input[type="button"].cancelar-grupo, input[type="button"].cancelar-rol, input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="button"].cancelar-eliminar-usuario-grupo, button.delete-user-group  {
+    background-color: #ff9019;
+}
+
+.new-group:hover , .new-user:hover, input[type="button"].cancelar-grupo:hover, input[type="button"].cancelar-rol:hover, input[type="button"].cancelar-nuevo-grupo:hover, input[type="button"].cancelar-nuevo-usuario:hover, input[type="button"].cancelar-eliminar-usuario-grupo:hover, button.delete-user-group:hover {
+    background-color: #ff7b15;
+}
+
+.admin-button:hover, .new-group:hover, .new-user:hover, button.edit:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+input[type="button"].cancelar-nuevo-grupo, input[type="button"].cancelar-nuevo-usuario, input[type="submit"]#añadir-usuario,  input[type="submit"]#añadir-grupo {
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 0; /* Espacio mínimo entre los botones */
+}
+
+.groups, .users {
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 20%;
+}
+
+table {
+    width: 80%;
+    border-collapse: separate; /* Necesario para que funcione border-radius */
+    border-spacing: 0; /* Elimina espacios entre celdas */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que los bordes redondeados sean visibles */
+    border: 1px solid #ccc; /* Bordes externos de la tabla */
+    margin-top: 10px;
+}
+
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word; 
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+thead th:first-child, tbody td:first-child {
+    width: 47.5%; /* Ajusta el ancho de la primera columna */
+}
+
+thead th:nth-child(2), tbody td:nth-child(2) {
+    width: 47.5%; /* Ajusta el ancho de la segunda columna */
+}
+
+thead th:last-child, tbody td:last-child {
+    width: 5%; /* Ajusta el ancho de la columna del botón */
+}
+
+dialog {
+    width: 450px; /* Ajusta el ancho */
+    border: none;
+    border-radius: 12px; /* Bordes más redondeados */
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    font-family: Arial, sans-serif; /* Fuente más moderna */
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+}
+
+.inputDialog{
+    padding: 10px 14px; 
+    font-size: 14px; 
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
+form p {
+    font-size: 16px; /* Tamaño de fuente del texto */
+    display: inline; /* Cambia el comportamiento del párrafo a inline */
+}
+
+select {
+    display: inline-block; /* Asegura que el select esté en la misma línea */
+    vertical-align: middle; /* Alinea el select con el texto */
+    width: 40%; /* Ocupa casi todo el ancho del diálogo */
+    padding: 8px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 6px; /* Bordes redondeados */
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
+}
+
+form {
+    display: flex; /* Usar flexbox dentro del formulario */
+    flex-direction: column; /* Alinear elementos en columna */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+.form-row {
+    display: flex; /* Coloca los elementos en una fila */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 10px; /* Espaciado entre texto y select */
+}
+
+.form-row p {
+    margin: 0;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.form-row select {
+    flex-grow: 1; /* Hace que el select ocupe todo el espacio restante */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
