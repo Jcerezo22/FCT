@@ -21,6 +21,15 @@
                         <div class='form-row'>
                             <input type="text" name="name" placeholder="Titulo de la nueva pregunta" class="inputDialog" size="49">
                         </div>
+                        <div class='form-row'>
+                            <select name="tipoRespuesta" class="inputDialog">
+                                <option value="" disabled selected>Selecciona el tipo de respuesta</option>
+                                <option value="textoLibre">Texto libre</option>
+                                <option value="numerico">Numérico</option>
+                                <option value="si/no">Sí/No</option>
+                                <option value="opcionMultiple">Opción múltiple</option>
+                            </select>
+                        </div>
                         <input type='submit' value='Añadir' name='añadirPregunta' id='añadir-pregunta'>
                         <input type='button' value='Cancelar'class='cancelar-nueva-pregunta'></input>
                     </form>
@@ -30,15 +39,17 @@
                         $preguntas = buscarPreguntas();
                         
                         foreach($preguntas as $row) {
-                            echo "<tr><td>". $row["titulo"] ."</td>";
-                            echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td></tr>";
-                            echo "
-                            <dialog id='dialog-edit-question-". $row["id_pregunta"] ."'>
-                                <form method='post' id='edit-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                    <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
-                                    <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
-                                </form>
-                            </dialog>";
+                            if($row["id_pregunta"] != 0){
+                                echo "<tr><td>". $row["titulo"] ."</td>";
+                                echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td></tr>";
+                                echo "
+                                <dialog id='dialog-edit-question-". $row["id_pregunta"] ."'>
+                                    <form method='post' id='edit-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                        <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
+                                        <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
+                                    </form>
+                                </dialog>";
+                            }
                         }
                     ?>
                 </table>
