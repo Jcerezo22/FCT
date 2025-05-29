@@ -33,6 +33,23 @@ $(document).ready(function () {
             dialog.close();
         }
     });
+
+    // Abrir el diálogo de eliminación de pregunta al hacer clic en un botón de "papelera"
+    $(".delete-question").on("click", function () {
+        const id_pregunta = $(this).data("question-id");
+        const dialog = document.getElementById(`dialog-delete-question-${id_pregunta}`);
+        if (dialog) {
+            dialog.showModal();
+        }
+    });
+
+    // Cerrar el diálogo de eliminación de pregunta al hacer clic en "Cancelar"
+    $(".cancelar-eliminar-pregunta").on("click", function () {
+        const dialog = $(this).closest("dialog").get(0);
+        if (dialog) {
+            dialog.close();
+        }
+    });
     
     /*************************************************ACCIONES******************************************************/
 
@@ -68,6 +85,23 @@ $(document).ready(function () {
             dialog.close();
         }
     }); 
+
+    // Abrir el diálogo de eliminación de accion al hacer clic en un botón de "papelera"
+    $(".delete-action").on("click", function () {
+        const id_accion = $(this).data("action-id");
+        const dialog = document.getElementById(`dialog-delete-action-${id_accion}`);
+        if (dialog) {
+            dialog.showModal();
+        }
+    });
+
+    // Cerrar el diálogo de eliminación de accion al hacer clic en "Cancelar"
+    $(".cancelar-eliminar-accion").on("click", function () {
+        const dialog = $(this).closest("dialog").get(0);
+        if (dialog) {
+            dialog.close();
+        }
+    });
 
     /*************************************************EVENTOS******************************************************/
 

@@ -41,12 +41,21 @@
                         foreach($preguntas as $row) {
                             if($row["id_pregunta"] != 0){
                                 echo "<tr><td>". $row["titulo"] ."</td>";
-                                echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td></tr>";
+                                echo "<td><button class='edit edit-question' data-question-id='". $row["id_pregunta"] ."'>✏️</button></td>";
+                                echo "<td><button class='edit delete-question' data-question-id='". $row["id_pregunta"] ."'>🗑️</button></td></tr>";
                                 echo "
                                 <dialog id='dialog-edit-question-". $row["id_pregunta"] ."'>
                                     <form method='post' id='edit-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                         <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
                                         <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
+                                    </form>
+                                </dialog>";
+                                echo "
+                                <dialog id='dialog-delete-question-". $row["id_pregunta"] ."'>
+                                    <form method='post' id='delete-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                        <div class='form-row'><p>Eliminar del grupo de <b>". $row["id_pregunta"]  ."</b> a </p</div>
+                                        <input type='submit' value='Aplicar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                        <input type='button' value='Cancelar' class='cancelar-eliminar-pregunta' data-dialog-id='dialog-delete-question-". $row["id_pregunta"] ."'></input>
                                     </form>
                                 </dialog>";
                             }
@@ -72,12 +81,21 @@
                         
                         foreach($acciones as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td>";
-                            echo "<td><button class='edit edit-action' data-action-id='". $row["id_accion"] ."'>✏️</button></td></tr>";
+                            echo "<td><button class='edit edit-action' data-action-id='". $row["id_accion"] ."'>✏️</button></td>";
+                            echo "<td><button class='edit delete-action' data-action-id='". $row["id_accion"] ."'>🗑️</button></td></tr>";
                             echo "
                             <dialog id='dialog-edit-action-". $row["id_accion"] ."'>
                                 <form method='post' id='edit-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <input type='submit' value='Aplicar' name='aplicarCambioAccion' id='aplicar-cambio-accion'>
                                     <input type='button' value='Cancelar' class='cancelar-cambio-accion' data-dialog-id='dialog-edit-action-". $row["id_accion"] ."'></input>
+                                </form>
+                            </dialog>";
+                            echo "
+                            <dialog id='dialog-delete-action-". $row["id_accion"] ."'>
+                                <form method='post' id='delete-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'><p>¿Quieres eliminar la <b>acción</b>?</p></div><br>
+                                    <input type='submit' value='Eliminar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                    <input type='button' value='Cancelar' class='cancelar-eliminar-accion' data-dialog-id='dialog-delete-action-". $row["id_accion"] ."'></input>
                                 </form>
                             </dialog>";
                         }
