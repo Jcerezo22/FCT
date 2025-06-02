@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    // Función para cerrar el diálogo más cercano
+    function cerrarDialog() {
+        const dialog = $(this).closest("dialog").get(0);
+        if (dialog) {
+            dialog.close();
+        }
+    }
+
     /***********************************************PREGUNTAS******************************************************/
 
     // Abrir el diálogo de creación de preguntas al hacer clic en el botón
@@ -10,12 +18,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de creación de preguntas al hacer clic en "Cancelar"
-    $(".cancelar-nueva-pregunta").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    });
+    $(".cancelar-nueva-pregunta").on("click", cerrarDialog);
 
     // Abrir el diálogo de edición de pregunta correspondiente al hacer clic en un botón de edición
     $(".edit-question").on("click", function () {
@@ -27,12 +30,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de edición de pregunta al hacer clic en "Cancelar"
-    $(".cancelar-cambio-pregunta").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    });
+    $(".cancelar-cambio-pregunta").on("click", cerrarDialog);
 
     // Abrir el diálogo de eliminación de pregunta al hacer clic en un botón de "papelera"
     $(".delete-question").on("click", function () {
@@ -44,12 +42,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de eliminación de pregunta al hacer clic en "Cancelar"
-    $(".cancelar-eliminar-pregunta").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    });
+    $(".cancelar-eliminar-pregunta").on("click", cerrarDialog);
     
     /*************************************************ACCIONES******************************************************/
 
@@ -62,12 +55,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de creación de acciones al hacer clic en "Cancelar"
-    $(".cancelar-nueva-accion").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    });
+    $(".cancelar-nueva-accion").on("click", cerrarDialog);
 
     // Abrir el diálogo de edición de accion correspondiente al hacer clic en un botón de edición
     $(".edit-action").on("click", function () {
@@ -79,12 +67,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de edición de accion al hacer clic en "Cancelar"
-    $(".cancelar-cambio-accion").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    }); 
+    $(".cancelar-cambio-accion").on("click", cerrarDialog);
 
     // Abrir el diálogo de eliminación de accion al hacer clic en un botón de "papelera"
     $(".delete-action").on("click", function () {
@@ -96,12 +79,7 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de eliminación de accion al hacer clic en "Cancelar"
-    $(".cancelar-eliminar-accion").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    });
+    $(".cancelar-eliminar-accion").on("click", cerrarDialog);
 
     /*************************************************EVENTOS******************************************************/
 
@@ -115,10 +93,5 @@ $(document).ready(function () {
     });
 
     // Cerrar el diálogo de edición de evento al hacer clic en "Cancelar"
-    $(".cancelar-cambio-evento").on("click", function () {
-        const dialog = $(this).closest("dialog").get(0);
-        if (dialog) {
-            dialog.close();
-        }
-    }); 
+    $(".cancelar-cambio-evento").on("click", cerrarDialog);
 });

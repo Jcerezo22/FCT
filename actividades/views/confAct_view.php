@@ -46,15 +46,18 @@
                                 echo "
                                 <dialog id='dialog-edit-question-". $row["id_pregunta"] ."'>
                                     <form method='post' id='edit-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                        <div class='form-row'>
+                                            <input type='text' name='name' placeholder='Nuevo titulo de la pregunta' class='inputDialog' size='49'>
+                                        </div><br>
                                         <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
                                         <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
                                     </form>
                                 </dialog>";
                                 echo "
-                                <dialog id='dialog-delete-question-". $row["id_pregunta"] ."'>
+                                <dialog id='dialog-delete-question-". $row["id_pregunta"] ."' class='eliminar'>
                                     <form method='post' id='delete-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
-                                        <div class='form-row'><p>Eliminar del grupo de <b>". $row["id_pregunta"]  ."</b> a </p</div>
-                                        <input type='submit' value='Aplicar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                        <div class='form-row'><p>¿Quieres eliminar la <b>pregunta</b>?</p></div><br>
+                                        <input type='submit' value='Eliminar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
                                         <input type='button' value='Cancelar' class='cancelar-eliminar-pregunta' data-dialog-id='dialog-delete-question-". $row["id_pregunta"] ."'></input>
                                     </form>
                                 </dialog>";
@@ -86,12 +89,15 @@
                             echo "
                             <dialog id='dialog-edit-action-". $row["id_accion"] ."'>
                                 <form method='post' id='edit-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'>
+                                        <input type='text' name='name' placeholder='Nuevo titulo de la acción' class='inputDialog' size='49'>
+                                    </div><br>
                                     <input type='submit' value='Aplicar' name='aplicarCambioAccion' id='aplicar-cambio-accion'>
                                     <input type='button' value='Cancelar' class='cancelar-cambio-accion' data-dialog-id='dialog-edit-action-". $row["id_accion"] ."'></input>
                                 </form>
                             </dialog>";
                             echo "
-                            <dialog id='dialog-delete-action-". $row["id_accion"] ."'>
+                            <dialog id='dialog-delete-action-". $row["id_accion"] ."' class='eliminar'>
                                 <form method='post' id='delete-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>¿Quieres eliminar la <b>acción</b>?</p></div><br>
                                     <input type='submit' value='Eliminar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
@@ -114,6 +120,9 @@
                             echo "
                             <dialog id='dialog-edit-event-". $row["id_evento"] ."'>
                                 <form method='post' id='edit-event' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'>
+                                        <input type='text' name='name' placeholder='Nuevo titulo del evento' class='inputDialog' size='49'>
+                                    </div><br>
                                     <input type='submit' value='Aplicar' name='aplicarCambioEvento' id='aplicar-cambio-evento'>
                                     <input type='button' value='Cancelar' class='cancelar-cambio-evento' data-dialog-id='dialog-edit-event-". $row["id_evento"] ."'></input>
                                 </form>

@@ -159,6 +159,11 @@ select {
     justify-content: space-between; /* Espaciado entre botones */
 }
 
+.eliminar {
+  width: 240px;               /* Ajusta el ancho según prefieras */
+  padding: 24px 20px 20px 20px; /* Padding compacto */
+}
+
 form {
     display: flex; /* Usar flexbox dentro del formulario */
     flex-direction: column; /* Alinear elementos en columna */
@@ -183,3 +188,4 @@ form {
     border: 1px solid #ccc;
     border-radius: 6px;
 }
+
