@@ -59,11 +59,11 @@ h1 {
     background-color: #0056b3;
 }
 
-.new-question, .new-action, input[type="button"].cancelar-cambio-pregunta, input[type="button"].cancelar-cambio-accion, input[type="button"].cancelar-cambio-evento, input[type="button"].cancelar-nueva-pregunta, input[type="button"].cancelar-nueva-accion, input[type="button"].cancelar-eliminar-pregunta, input[type="button"].cancelar-eliminar-accion, button.delete-question, button.delete-action {
+.new-question, .new-action, input[type="button"].cancelar-cambio-pregunta, input[type="button"].cancelar-cambio-accion, input[type="button"].cancelar-cambio-evento, input[type="button"].cancelar-nueva-pregunta, input[type="button"].cancelar-nueva-accion, input[type="button"].cancelar-eliminar-pregunta, input[type="button"].cancelar-eliminar-accion, input[type="button"].cancelar-añadir-accion-evento, input[type="button"].cancelar-eliminar-accion-evento, button.delete-question, button.delete-action ,button.remove-acction {
     background-color: #c919ff;
 }
 
-.new-question:hover , .new-action:hover, input[type="button"].cancelar-cambio-pregunta:hover, input[type="button"].cancelar-cambio-accion:hover, input[type="button"].cancelar-cambio-evento:hover, input[type="button"].cancelar-nueva-pregunta:hover, input[type="button"].cancelar-nueva-accion:hover, input[type="button"].cancelar-eliminar-pregunta:hover, input[type="button"].cancelar-eliminar-accion:hover, button.delete-question:hover, button.delete-action:hover {
+.new-question:hover , .new-action:hover, input[type="button"].cancelar-cambio-pregunta:hover, input[type="button"].cancelar-cambio-accion:hover, input[type="button"].cancelar-cambio-evento:hover, input[type="button"].cancelar-nueva-pregunta:hover, input[type="button"].cancelar-nueva-accion:hover, input[type="button"].cancelar-eliminar-pregunta:hover, input[type="button"].cancelar-eliminar-accion:hover, input[type="button"].cancelar-añadir-accion-evento:hover, input[type="button"].cancelar-eliminar-accion-evento:hover, button.delete-question:hover, button.delete-action:hover,button.remove-acction:hover {
     background-color: #9309be;
 }
 

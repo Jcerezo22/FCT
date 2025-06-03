@@ -30,6 +30,9 @@
                                 <option value="opcionMultiple">Opción múltiple</option>
                             </select>
                         </div>
+                        <div class='form-row'>
+                            <input type="text" name="evento" placeholder="Nombre del evento asociado" class="inputDialog" size="49">
+                        </div>
                         <input type='submit' value='Añadir' name='añadirPregunta' id='añadir-pregunta'>
                         <input type='button' value='Cancelar'class='cancelar-nueva-pregunta'></input>
                     </form>
@@ -49,6 +52,7 @@
                                         <div class='form-row'>
                                             <input type='text' name='name' placeholder='Nuevo titulo de la pregunta' class='inputDialog' size='49'>
                                         </div><br>
+                                        <input type='hidden' name='id_pregunta' value='". $row["id_pregunta"] ."'>
                                         <input type='submit' value='Aplicar' name='aplicarCambioPregunta' id='aplicar-cambio-pregunta'>
                                         <input type='button' value='Cancelar' class='cancelar-cambio-pregunta' data-dialog-id='dialog-edit-question-". $row["id_pregunta"] ."'></input>
                                     </form>
@@ -57,7 +61,8 @@
                                 <dialog id='dialog-delete-question-". $row["id_pregunta"] ."' class='eliminar'>
                                     <form method='post' id='delete-question' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                         <div class='form-row'><p>¿Quieres eliminar la <b>pregunta</b>?</p></div><br>
-                                        <input type='submit' value='Eliminar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                        <input type='hidden' name='id_pregunta' value='". $row["id_pregunta"] ."'>
+                                        <input type='submit' value='Eliminar' name='aplicarEliminarPregunta' id='aplicar-eliminar-pregunta'>
                                         <input type='button' value='Cancelar' class='cancelar-eliminar-pregunta' data-dialog-id='dialog-delete-question-". $row["id_pregunta"] ."'></input>
                                     </form>
                                 </dialog>";
@@ -90,8 +95,9 @@
                             <dialog id='dialog-edit-action-". $row["id_accion"] ."'>
                                 <form method='post' id='edit-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'>
-                                        <input type='text' name='name' placeholder='Nuevo titulo de la acción' class='inputDialog' size='49'>
+                                        <input type='text' name='name' placeholder='Nuevo nombre de la acción' class='inputDialog' size='49'>
                                     </div><br>
+                                    <input type='hidden' name='id_accion' value='". $row["id_accion"] ."'>
                                     <input type='submit' value='Aplicar' name='aplicarCambioAccion' id='aplicar-cambio-accion'>
                                     <input type='button' value='Cancelar' class='cancelar-cambio-accion' data-dialog-id='dialog-edit-action-". $row["id_accion"] ."'></input>
                                 </form>
@@ -100,7 +106,8 @@
                             <dialog id='dialog-delete-action-". $row["id_accion"] ."' class='eliminar'>
                                 <form method='post' id='delete-action' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'><p>¿Quieres eliminar la <b>acción</b>?</p></div><br>
-                                    <input type='submit' value='Eliminar' name='aplicarEliminarDelGrupo' id='aplicar-eliminar-del-grupo'>
+                                    <input type='hidden' name='id_accion' value='". $row["id_accion"] ."'>
+                                    <input type='submit' value='Eliminar' name='aplicarEliminarAccion' id='aplicar-eliminar-accion'>
                                     <input type='button' value='Cancelar' class='cancelar-eliminar-accion' data-dialog-id='dialog-delete-action-". $row["id_accion"] ."'></input>
                                 </form>
                             </dialog>";
@@ -116,17 +123,46 @@
                         
                         foreach($eventos as $row) {
                             echo "<tr><td>". $row["nombre"] ."</td>";
+                            echo "</td><td><button class='edit add-acction' data-event-id='". $row["id_evento"] ."'>+</button></td>";
+                            echo "<td><button class='edit remove-acction' data-event-id='". $row["id_evento"] ."'>–</button></td>";
                             echo "<td><button class='edit edit-event' data-event-id='". $row["id_evento"] ."'>✏️</button></td></tr>";
+                            echo "
+                            <dialog id='dialog-add-acction-event-". $row["id_evento"] ."'>
+                                <form method='post' id='add-acction-event' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'><p>Añadir al evento de <b>". $row["nombre"]  ."</b> la acción </p>
+                                    <select name='usuarios' class='form-control'>";
+                                        mostrarAccionesAñadir($row["id_evento"]);
+                            echo "
+                                    </select></div><br>
+                                    <input type='hidden' name='id_evento' value='". $row["id_evento"] ."'>
+                                    <input type='submit' value='Aplicar' name='añadirAccionEvento' id='aplicar-accion-evento'>
+                                    <input type='button' value='Cancelar' class='cancelar-añadir-accion-evento' data-dialog-id='dialog-edit-group-". $row["id"] ."'></input>
+                                </form>
+                            </dialog>";
+                            echo "
+                            <dialog id='dialog-remove-acction-event-". $row["id_evento"] ."'>
+                                <form method='post' id='remove-acction-event' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
+                                    <div class='form-row'><p>Eliminar del grupo de <b>". $row["nombre"]  ."</b> a </p>
+                                    <select name='usuarios' class='form-control'>";
+                                        mostrarAccionesEliminar($id_evento);
+                            echo "
+                                    </select></div><br>
+                                    <input type='hidden' name='id_evento' value='". $row["id_evento"] ."'>
+                                    <input type='submit' value='Aplicar' name='aplicarEliminarAccion' id='aplicar-eliminar-accion'>
+                                    <input type='button' value='Cancelar' class='cancelar-eliminar-accion-evento' data-dialog-id='dialog-delete-user-group-". $row["id"] ."'></input>
+                                </form>
+                            </dialog>";
                             echo "
                             <dialog id='dialog-edit-event-". $row["id_evento"] ."'>
                                 <form method='post' id='edit-event' action='". htmlspecialchars($_SERVER["PHP_SELF"]) ."'>
                                     <div class='form-row'>
                                         <input type='text' name='name' placeholder='Nuevo titulo del evento' class='inputDialog' size='49'>
                                     </div><br>
+                                    <input type='hidden' name='id_evento' value='". $row["id_evento"] ."'>
                                     <input type='submit' value='Aplicar' name='aplicarCambioEvento' id='aplicar-cambio-evento'>
                                     <input type='button' value='Cancelar' class='cancelar-cambio-evento' data-dialog-id='dialog-edit-event-". $row["id_evento"] ."'></input>
                                 </form>
-                            </dialog>";
+                            </dialog>";   
                         }
                     ?>
                 </table>

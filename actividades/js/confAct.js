@@ -84,6 +84,30 @@ $(document).ready(function () {
     /*************************************************EVENTOS******************************************************/
 
     // Abrir el diálogo de edición de evento correspondiente al hacer clic en un botón de edición
+    $(".add-acction").on("click", function () {
+        const id_evento = $(this).data("event-id");
+        const dialog = document.getElementById(`dialog-add-acction-event-${id_evento}`);
+        if (dialog) {
+            dialog.showModal();
+        }
+    });
+
+    // Cerrar el diálogo de edición de evento al hacer clic en "Cancelar"
+    $(".cancelar-añadir-accion-evento").on("click", cerrarDialog);
+
+    // Abrir el diálogo de edición de evento correspondiente al hacer clic en un botón de edición
+    $(".remove-acction").on("click", function () {
+        const id_evento = $(this).data("event-id");
+        const dialog = document.getElementById(`dialog-remove-acction-event-${id_evento}`);
+        if (dialog) {
+            dialog.showModal();
+        }
+    });
+
+    // Cerrar el diálogo de edición de evento al hacer clic en "Cancelar"
+    $(".cancelar-eliminar-accion-evento").on("click", cerrarDialog);
+
+    // Abrir el diálogo de edición de evento correspondiente al hacer clic en un botón de edición
     $(".edit-event").on("click", function () {
         const id_evento = $(this).data("event-id");
         const dialog = document.getElementById(`dialog-edit-event-${id_evento}`);
